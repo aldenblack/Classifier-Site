@@ -4,6 +4,7 @@ const path = require('path');
 
 const app = express();
 app.use(express.json());
+app.use(express.static('public'));
 
 const imageBankPath = path.join(__dirname, 'image-bank');
 
@@ -34,6 +35,42 @@ app.post('/api/classify', async (req, res) => {
     res.json({ success: true });
   } catch (error) {
     res.status(500).json({ error: 'Error classifying image' });
+  }
+});
+
+app.post('/classify-image', async (req, res) => {
+  try {
+    const {classification, imagePath} = req.body;
+
+    let fileToUpdate;
+    switch (classification) {
+      case 'p':
+        fileToUpdate = 'positive-image-list.json';
+        break;
+      case 'n':
+        fileToUpdate = 'negative-image-list.json';
+        break;
+      case 'stack':
+        fileToUpdate = 'stack-image-list.json';
+        break;
+      default:
+        throw new Error('invalid choice :(');
+    }
+
+    const targetFilePath = path.join(__dirname, fileToUpdate);
+    let targetFileData = JSON.parse(await fs.readFile(targetFilePath, 'utf8'));
+    targetFileData.images.push(imagePath);
+    await fs.writeFile(targetFilePath, JSON.stringify(targetFileData, null, 2));
+
+    const imageListPath = path.join(__dirname, 'image-list.json');
+    let imageListData = JSON.parse(await fs.readFile(imageListPath, 'utf8'));
+
+    imageListData.images = imageListData.images.filter(img => img !== imagePath);
+    await fs.writeFile(imageListPath, JSON.stringify(imageListData, null, 2));
+    res.json({success : true});
+  } catch (error) {
+    console.error('Error  ', error);
+    res.status(500).json({success: false, error: error.message});
   }
 });
 

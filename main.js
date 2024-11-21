@@ -26,10 +26,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function classifyImage(classification) {
-        console.log(`Classifying image as: ${classification}`);
-        // Here you would implement the logic to move the file
-        // Since we can't directly access the file system from the browser,
-        // you might need to use a different approach or technology for this part
+        if (currentIndex > 0) {
+            const imagePath = images[currentIndex - 1];
+           
+            // Send classification to server
+            fetch('/classify-image', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    classification: classification,
+                    imagePath: imagePath
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log(`Image classified as: ${classification}`);
+                    // Remove the classified image from the local array
+                    images.splice(currentIndex - 1, 1);
+                    currentIndex--;
+                    loadNextImage();
+                } else {
+                    console.error('Error classifying image:', data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
         loadNextImage();
     }
 
