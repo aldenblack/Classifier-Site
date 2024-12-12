@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Categorization</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        img {
+            max-width: 80%;
+            max-height: 60vh;
+            margin-bottom: 20px;
+        }
+        button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="currentImage" src="" alt="Current Image">
+    <div>
+        <button onclick="categorizeImage('p')">Yes</button>
+        <button onclick="categorizeImage('n')">No</button>
+        <button onclick="categorizeImage('s')">Stack</button>
+    </div>
+
+    <script>
+        function loadNextImage() {
+            fetch('/next-image')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('currentImage').src = data.imagePath;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function categorizeImage(category) {
+            const imageSrc = document.getElementById('currentImage').src;
+            const imageName = imageSrc.split('/').pop();
+
+            fetch('/categorize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ imageName, category }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    loadNextImage();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        // Load the first image when the page loads
+        loadNextImage();
+    </script>
+</body>
+</html>
