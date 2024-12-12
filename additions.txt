@@ -1,0 +1,7 @@
+- add in directory arg in command prompt
+- change to number buttons, and more option with text box and unsure (std options are 0, 1, 2, 3)
+- hot-keys
+- everyone is assigned a folder (each folder gets done multiple times)
+- have two separate students assess the same folder
+- pruning step (1.46 kb threshold)
+- requirements file w modules/packages, documentation on how to run the backend
