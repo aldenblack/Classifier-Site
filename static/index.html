@@ -30,9 +30,14 @@
 <body>
     <img id="currentImage" src="" alt="Current Image">
     <div>
-        <button onclick="categorizeImage('p')">Yes</button>
-        <button onclick="categorizeImage('n')">No</button>
-        <button onclick="categorizeImage('s')">Stack</button>
+        <button onclick="categorizeImage('eggs0count')">0 Eggs</button>
+        <button onclick="categorizeImage('eggs1count')">1 Egg</button>
+        <button onclick="categorizeImage('eggs2count')">2 Eggs</button>
+        <button onclick="categorizeImage('eggs3count')">3 Eggs</button>
+        <button onclick="categorizeImage('eggspartialcount')">Partial Egg</button>
+        <button onclick="categorizeImage('eggsunsurecount')">Unsure</button>
+        <input type="number" id="customCount" min="0" placeholder="Custom count">
+        <button onclick="categorizeCustom()">Submit Custom</button>
     </div>
 
     <script>
@@ -64,6 +69,17 @@
             })
             .catch(error => console.error('Error:', error));
         }
+
+        function categorizeCustom() {
+            const count = document.getElementById('customCount').value;
+            categorizeImage(`eggs${count}count`);
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key >= '0' && event.key <= '3') {
+                categorizeImage(`eggs${event.key}count`);
+            }
+        });
 
         // Load the first image when the page loads
         loadNextImage();
