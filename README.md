@@ -35,11 +35,13 @@ There is no partial egg button! If you see more than 70% of an egg in the image 
 2. Find which folder this has been downloaded, it is most likely in your Downloads folder
 
 **macOS/Linux**
+
 3. Right click on the Classifier-Site folder and press Get Info. There should be an option called "Where" containing information as to the folders the Classifier-Site directory is in.
 
 <img width="263" alt="Screenshot 2024-12-14 at 5 56 31 PM" src="https://github.com/user-attachments/assets/98640e07-6f7c-4ef6-85b4-25cc0d3725cd" />
 
 You should have something similar, this means that the Classifier-Site path is **/Users/shreyanakum/Downloads/Classifier-Site**
+
 4. Open Terminal and cd into the Classifier-Site directory:
 ```
 $ cd [your-path-to-the-Classifier-Site-directory]
