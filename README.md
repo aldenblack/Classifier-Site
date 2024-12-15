@@ -80,7 +80,7 @@ If your output is missing one of these, please contact me and do not proceed.
 ```
 $ pip install --upgrade pip
 ```
-If you are unfortunately a **Windows** user try:
+If you are a **Windows** user try:
 ```
 > py -m pip install --upgrade pip
 ```
@@ -95,7 +95,7 @@ $ python3 -m venv .venv
 $ .venv/bin/activate
 $ pip install Flask
 ```
-**Windows:(**
+**Windows**
 ```
 > py -3 -m venv .venv
 > .venv\Scripts\activate
