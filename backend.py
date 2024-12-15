@@ -21,6 +21,8 @@ IMAGE_FOLDER = sys.argv[1]
 if (n > 2):
     if sys.argv[2] == "pops":
         IMAGE_FOLDER = f'{IMAGE_FOLDER} pops'
+    elif sys.argv[3] == "pops":
+        IMAGE_FOLDER = f'{IMAGE_FOLDER} {sys.argv[2]} pops'
     else:
         raise ArgumentError("Too many arguments, should only have backend.py argument and image bank path.")
 
