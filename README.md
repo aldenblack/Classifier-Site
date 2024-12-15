@@ -105,16 +105,14 @@ $ pip install Flask
 #### 5. Execution
 * You should have been emailed a two folders containing the images that you will classify. Choose one.
 * The folder's structure should be:
-
+```
 .
 ├── MONTH DAY
-
     │
-    
     ├── C pops
     │
-    
     └── D pops
+```
 
 * Choose a folder C pops or D pops.
 * Do what you did when finding the path to the Classifier-Site directory to find the path of the folder you just chose again. This path you chose should end with C pops or D pops.
