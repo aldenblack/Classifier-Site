@@ -1,10 +1,10 @@
-- add in directory arg in command prompt
 - requirements file w modules/packages, documentation on how to run the backend
 
 ## done
 - change to number buttons, and more option with text box and unsure (std options are 0, 1, 2, 3) [done]
 - hot-keys [done]
 - pruning step (1.46 kb threshold) [done]
+- add in directory arg in command prompt [done]
 
 ## other/not me
 - everyone is assigned a folder (each folder gets done multiple times)

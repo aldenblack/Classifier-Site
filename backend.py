@@ -1,16 +1,37 @@
+import sys
 import os
 import random
 from flask import Flask, jsonify, request, send_from_directory
+
 import logging
 logging.basicConfig(level=logging.DEBUG)
+
 from preprocessing_files.pruning import classify_white_spaces
+from custom_arg import ArgumentError
 
 app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-IMAGE_FOLDER = "/Users/shreyanakum/Downloads/Classifier-Site/image-bank/D pops" #r"C:\Users\droso\Documents\Image-Splitting\2 21\C pops" #os.path.join(BASE_DIR, 'image-bank')#r"C:\Users\droso\Documents\Classifier-Site\image-bank"
 
-classify_white_spaces(IMAGE_FOLDER)
+n = len(sys.argv)
+if (n < 2):
+    raise ArgumentError("Missing directory argument.")
+backend = sys.argv[0]
+IMAGE_FOLDER = sys.argv[1]
+if (n > 2):
+    if sys.argv[2] == "pops":
+        IMAGE_FOLDER = f'{IMAGE_FOLDER} pops'
+    else:
+        raise ArgumentError("Too many arguments, should only have backend.py argument and image bank path.")
+
+if not os.path.isdir(IMAGE_FOLDER):
+    raise ArgumentError('Image bank path must lead to a directory.')
+if ('D pops' not in IMAGE_FOLDER) and ('C pops' not in IMAGE_FOLDER):
+    print(IMAGE_FOLDER)
+    raise ArgumentError('Folder must have a valid population directory, such as D pops or C pops inside it')
+
+classify_white_spaces(IMAGE_FOLDER) # this takes about 1-2 minutes to run, dw about it, it's removing all white space squares
+
 
 @app.route('/')
 def index():

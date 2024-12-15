@@ -1,8 +1,7 @@
-# removes white squares from the split image folders
-
 import os
 
 def classify_white_spaces(dir):
+    '''removes white squares from the split image folders by automatically classifying them as having 0 eggs'''
     files = os.listdir(dir)
     for filename in files:
         filepath = os.path.join(dir, filename)
@@ -12,6 +11,3 @@ def classify_white_spaces(dir):
                 new_name = f"eggs0count{filename}"
                 new_path = os.path.join(dir, new_name)
                 os.rename(filepath, new_path)
-
-if __name__ == '__main__':
-    classify_white_spaces("/Users/shreyanakum/Downloads/Classifier-Site/image-bank/D pops")
