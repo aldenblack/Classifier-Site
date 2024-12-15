@@ -73,5 +73,11 @@ def categorize():
 def serve_image(filename):
     return send_from_directory(IMAGE_FOLDER, filename)
 
+@app.route('/total-images', methods=['GET'])
+def total_images():
+    images = [f for f in os.listdir(IMAGE_FOLDER) if f.endswith('.jpg') and not f.startswith(('e')) and f.startswith(('M'))]
+    return jsonify({'totalImages': len(images)})
+
+
 if __name__ == '__main__':
     app.run(debug=True)

@@ -34,13 +34,39 @@
         <button onclick="categorizeImage('eggs1count')">1 Egg</button>
         <button onclick="categorizeImage('eggs2count')">2 Eggs</button>
         <button onclick="categorizeImage('eggs3count')">3 Eggs</button>
-        <button onclick="categorizeImage('eggspartialcount')">Partial Egg</button>
         <button onclick="categorizeImage('eggsunsurecount')">Unsure</button>
         <input type="number" id="customCount" min="0" placeholder="Custom count">
         <button onclick="categorizeCustom()">Submit Custom</button>
     </div>
 
+    <div id="progressBarContainer" style="width: 80%; background-color: #e0e0e0;">
+        <div id="progressBar" style="width: 0%; height: 20px; background-color: #4CAF50;"></div>
+    </div>
+    <p id="progressText">0 / 0 images categorized</p>
+    
+
     <script>
+        let totalImages = 0;
+        let categorizedImages = 0;
+
+        function updateProgressBar() {
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const percentage = (categorizedImages / totalImages) * 100;
+            progressBar.style.width = percentage + '%';
+            progressText.textContent = `${categorizedImages} / ${totalImages} images categorized`;
+        }
+
+        function getTotalImages() {
+            fetch('/total-images')
+                .then(response => response.json())
+                .then(data => {
+                    totalImages = data.totalImages;
+                    updateProgressBar();
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
         function loadNextImage() {
             fetch('/next-image')
                 .then(response => response.json())
@@ -64,6 +90,8 @@
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
+                    categorizedImages++;
+                    updateProgressBar();
                     loadNextImage();
                 }
             })
@@ -83,6 +111,8 @@
 
         // load the first image when the page loads
         loadNextImage();
+        getTotalImages();
+
     </script>
 </body>
 </html>
