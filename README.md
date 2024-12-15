@@ -130,7 +130,7 @@ Shreya Nakum
     * Added hot-keys
     * Added progress bar
     * Switched to number buttons
-    * See [commit change]()
+    * See [commit change](https://github.com/sn82978/Classifier-Site/graphs/commit-activity)
 * 0.1
     * Initial Release
 
