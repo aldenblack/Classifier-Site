@@ -12,7 +12,7 @@ Select these options if there are one, two, or three eggs in the image.
 If you are unsure about the number of eggs in an image, click this. These will later be reviewed by Ken and classified accordingly.
 
 #### Custom Count
-If there are more than three eggs in the image, type the **INTEGER VALUE** of the number of eggs in the tile. Do NOT type the word equivalent of the count. Type an **integer** (please or else I will be very sad). After you type in the integer, click submit and the next image will be loaded.
+If there are more than three eggs in the image, type the **INTEGER VALUE** of the number of eggs in the tile. Do NOT type the word equivalent of the count. After you type in the integer, click submit and the next image will be loaded.
 
 #### Important: Partial Egg Counting
 There is no partial egg button! If you see more than 70% of an egg in the image or you didn't _really_ have to think about if this is an egg or not, count is as an egg. If there's very little of the egg in the image (e.g. less than 20% of the egg), do not count it as an egg. If you are unsure, click "Unsure."
@@ -100,11 +100,16 @@ $ pip install Flask
 
 #### 5. Execution
 * You should have been emailed a two folders containing the images that you will classify. Choose one.
-* The folder's structure should be where MONTH is either 3 or 2 and DAY is between 1 and 10 if MONTH is 3 or between 21 and 28 if MONTH is 2 (inclusive):
+* The folder's structure should be:
+
 .
+
 ├── MONTH DAY
+
 │   ├── C pops
+
 │   └── D pops
+
 * Choose a folder C pops or D pops.
 * Do what you did when finding the path to the Classifier-Site directory to find the path of the folder you just chose again. This path you chose should end with C pops or D pops.
 EX) ./MONTH DAY/C pops
@@ -133,7 +138,3 @@ Shreya Nakum
     * See [commit change](https://github.com/sn82978/Classifier-Site/graphs/commit-activity)
 * 0.1
     * Initial Release
-
-## License
-
-This project is licensed under the MIT Apache License - see the LICENSE.md file for details
