@@ -99,7 +99,12 @@
         }
 
         function categorizeCustom() {
-            const count = document.getElementById('customCount').value;
+            const countInput = document.getElementById('customCount').value;
+            const count = parseInt(countInput, 10);
+
+            if (!Number.isInteger(count) || count < 0) {
+                throw new Error("Please enter a valid non-negative integer.");
+            }
             categorizeImage(`eggs${count}count`);
         }
 
