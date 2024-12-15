@@ -34,7 +34,7 @@ There is no partial egg button! If you see more than 70% of an egg in the image 
 1. Click the Green Code button in the right side and press "Download Zip," this should download the Classifier-Site repository onto your computer
 2. Find which folder this has been downloaded, it is most likely in your Downloads folder
 
-**macOS/Linux**
+##### macOS/Linux
 
 3. Right click on the Classifier-Site folder and press Get Info. There should be an option called "Where" containing information as to the folders the Classifier-Site directory is in.
 
@@ -55,7 +55,7 @@ backend.py		preprocessing_files
 ```
 If your output is missing one of these files, please contact me and do not proceed.
 
-**Windows**
+##### Windows
 
 3. Right click on the Classifier-Site folder and press Properties. There should be "Location" field containing  the Classifier-Site directory's path. Copy it.
 
@@ -89,13 +89,14 @@ If neither of these worked, Google your error. If you are still having issues, c
 #### 4. Virtual Environment & Flask
 * The backend of this program was written using [Flask](https://flask.palletsprojects.com/en/stable/installation/), a Python package that is a web framework with tools and libraries for building web applications (like this one)!
 * Before you install Flask, you need to make a virtual environment.
-**macOS/Linux**
+  
+##### macOS/Linux
 ```
 $ python3 -m venv .venv
 $ .venv/bin/activate
 $ pip install Flask
 ```
-**Windows**
+##### Windows
 ```
 > py -3 -m venv .venv
 > .venv\Scripts\activate
