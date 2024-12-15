@@ -107,11 +107,13 @@ $ pip install Flask
 * The folder's structure should be:
 
 .
-
 ├── MONTH DAY
+
     │
+    
     ├── C pops
     │
+    
     └── D pops
 
 * Choose a folder C pops or D pops.
