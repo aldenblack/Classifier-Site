@@ -56,7 +56,9 @@ backend.py		preprocessing_files
 If your output is missing one of these files, please contact me and do not proceed.
 
 **Windows**
+
 3. Right click on the Classifier-Site folder and press Properties. There should be "Location" field containing  the Classifier-Site directory's path. Copy it.
+
 4. Open Command Prompt and cd into the Classifier-Site directory:
 ```
 > cd [your-path-to-the-Classifier-Site-directory]
