@@ -34,9 +34,11 @@ There is no partial egg button! If you see more than 70% of an egg in the image 
 1. Click the Green Code button in the right side and press "Download Zip," this should download the Classifier-Site repository onto your computer
 2. Find which folder this has been downloaded, it is most likely in your Downloads folder
 
-**macOS**
+**macOS/Linux**
 3. Right click on the Classifier-Site folder and press Get Info. There should be an option called "Where" containing information as to the folders the Classifier-Site directory is in.
+
 <img width="263" alt="Screenshot 2024-12-14 at 5 56 31 PM" src="https://github.com/user-attachments/assets/98640e07-6f7c-4ef6-85b4-25cc0d3725cd" />
+
 You should have something similar, this means that the Classifier-Site path is **/Users/shreyanakum/Downloads/Classifier-Site**
 4. Open Terminal and cd into the Classifier-Site directory:
 ```
@@ -55,11 +57,11 @@ If your output is missing one of these files, please contact me and do not proce
 3. Right click on the Classifier-Site folder and press Properties. There should be "Location" field containing  the Classifier-Site directory's path. Copy it.
 4. Open Command Prompt and cd into the Classifier-Site directory:
 ```
-$ cd [your-path-to-the-Classifier-Site-directory]
+> cd [your-path-to-the-Classifier-Site-directory]
 ```
 5. Now, we will double check that you have all necessary files/sub-directories:
 ```
-$ dir
+> dir
 additions.txt
 custom_arg.py
 static
@@ -70,11 +72,11 @@ If your output is missing one of these, please contact me and do not proceed.
 
 #### 3. Pip
 * If you downloaded Python from python.org (the link provided in the previous step), you should already have pip.
-* If you have an older version if pip and aren't a Windows user, please update it now by running (the $ is just to indicate shell, do not copy it when you run the command):
+* If you have an older version if pip and are using **macOS or Linux**, please update it now by running (the $ is just to indicate shell, do not copy it when you run the command):
 ```
 $ pip install --upgrade pip
 ```
-If you are unfortunately a Windows user try:
+If you are unfortunately a **Windows** user try:
 ```
 > py -m pip install --upgrade pip
 ```
