@@ -2,9 +2,14 @@
 
 This UI is meant to help with classifying split images from the Winter 2017 dataset. Each image is a 75x75 "tile" of the original image. We use tile to refer to the image displayed on the site.
 
+<img width="1491" alt="Screenshot 2024-12-18 at 8 54 36 PM" src="https://github.com/user-attachments/assets/664fad77-59ce-426a-8112-8d1a819d8555" />
+
 ## UI Rules
 
 You will be assigned two folders to look through and assign labels to. The UI contains the following buttons: One, two, three, unsure, and custom count. With this program, you will be classifying the number of eggs in the tile provided.
+
+
+
 #### One, Two, and Three
 Select these options if there are one, two, or three eggs in the image. 
 
