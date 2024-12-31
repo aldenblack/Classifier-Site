@@ -33,7 +33,7 @@ There is no partial egg button! If you see more than 70% of an egg in the image 
 
 #### 1. Downloading Python
 * I used Python 3.12.5, so I recommend that but if your existing Python version is 3.9.6 and up, you don't need to update your Python.
-* If you don't have Python, click [here]([url](https://www.python.org/downloads/)) and install it. Follow the directions that it states.
+* If you don't have Python, click [here](https://www.python.org/downloads/) and install it. Follow the directions that it states.
 
 #### 2. Getting the Repository
 1. Click the Green Code button in the right side and press "Download Zip," this should download the Classifier-Site repository onto your computer
@@ -98,7 +98,7 @@ If neither of these worked, Google your error. If you are still having issues, c
 ##### macOS/Linux
 ```
 $ python3 -m venv .venv
-$ .venv/bin/activate
+$ . .venv/bin/activate
 $ pip install Flask
 ```
 ##### Windows
