@@ -1,8 +1,9 @@
 # Classifying Fecundity Data UI
 
 This UI is meant to help with classifying split images from the Winter 2017 dataset. Each image is a 75x75 "tile" of the original image. We use tile to refer to the image displayed on the site.
+![Screenshot 2025-01-06 162822](https://github.com/user-attachments/assets/f069d3cd-0d1e-430b-a7d1-c0fb29bfb627)
 
-<img width="1491" alt="Screenshot 2024-12-18 at 8 54 36 PM" src="https://github.com/user-attachments/assets/664fad77-59ce-426a-8112-8d1a819d8555" />
+<img width="1491" alt="Screenshot 2025-01-06 162822" src="https://github.com/user-attachments/assets/f069d3cd-0d1e-430b-a7d1-c0fb29bfb627" />
 
 ## UI Rules
 
