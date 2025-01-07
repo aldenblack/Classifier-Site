@@ -37,6 +37,7 @@
         <button onclick="categorizeImage('eggsunsurecount')">Unsure</button>
         <input type="number" id="customCount" min="0" placeholder="Custom count">
         <button onclick="categorizeCustom()">Submit Custom</button>
+        <button onclick="undoLastAction()">Undo</button>
     </div>
 
     <div id="progressBarContainer" style="width: 80%; background-color: #e0e0e0;">
@@ -66,6 +67,54 @@
                 })
                 .catch(error => console.error('Error:', error));
         }
+
+        function undoLastAction() {
+            fetch('/undo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('currentImage').src = data.imagePath;
+                    categorizedImages--;
+                    updateProgressBar();
+                } else {
+                    console.error('Undo failed:', data.error);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function categorizeImage(category) {
+            const imageSrc = document.getElementById('currentImage').src;
+            const imageName = imageSrc.split('/').pop();
+
+            fetch('/categorize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ imageName, category }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    categorizedImages++;
+                    updateProgressBar();
+                    loadNextImage();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            loadNextImage();
+            getTotalImages();
+        });
+
 
         function loadNextImage() {
             fetch('/next-image')
