@@ -18,6 +18,9 @@ If you are unsure about the number of eggs in an image, click this. These will l
 #### Custom Count
 If there are more than three eggs in the image, type the **INTEGER VALUE** of the number of eggs in the tile. Do NOT type the word equivalent of the count. After you type in the integer, click submit and the next image will be loaded.
 
+#### Undo
+If you make a mistake, click Undo. This should allows you to reclassify the image.
+
 #### Important: Partial Egg Counting
 There is no partial egg button! If you see more than 70% of an egg in the image or you didn't _really_ have to think about if this is an egg or not, count is as an egg. If there's very little of the egg in the image (e.g. less than 20% of the egg), do not count it as an egg. If you are unsure, click "Unsure."
 
@@ -55,13 +58,13 @@ EX) In my case, I would type **cd /Users/shreyanakum/Downloads/Classifier-Site**
 ```
 $ ls
 additions.txt		custom_arg.py		static
-backend.py		preprocessing_files
+backend.py		preprocessing_files		image_shredder.py
 ```
-If your output is missing one of these files, please contact me and do not proceed.
+If your output is missing one of these files, please contact us and do not proceed.
 
 ##### Windows
 
-3. Right click on the Classifier-Site folder and press Properties. There should be "Location" field containing  the Classifier-Site directory's path. Copy it.
+3. Right click on the Classifier-Site folder and press Properties. There should be "Location" field containing  the Classifier-Site directory's path. Copy it. If "Copy as Path" appears when you right-click, click that button instead. That should copy the path as well. Ensure that you're using the absolute path.
 
 4. Open Command Prompt and cd into the Classifier-Site directory:
 ```
@@ -75,8 +78,9 @@ custom_arg.py
 static
 backend.py
 preprocessing_files
+image_shredder.py
 ```
-If your output is missing one of these, please contact me and do not proceed.
+If your output is missing one of these, please contact us and do not proceed.
 
 #### 3. Pip
 * If you downloaded Python from python.org (the link provided in the previous step), you should already have pip.
@@ -139,11 +143,12 @@ Shreya Nakum
 [snakum@uci.edu](snakum@uci.edu)
 
 ## Version History
-
+* 0.3
+    * Added Undo button
+    * Fixed issues with sys.argv
 * 0.2
     * Added hot-keys
     * Added progress bar
     * Switched to number buttons
-    * See [commit change](https://github.com/sn82978/Classifier-Site/graphs/commit-activity)
 * 0.1
     * Initial Release
