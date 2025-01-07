@@ -72,7 +72,7 @@ def categorize():
     try:
         os.rename(old_path, new_path)
        
-        # Store the action in the history
+        # store the action in the history with both the old and new name it gets later on
         categorization_history.append({'old_name': old_name, 'new_name': new_name})
        
         return jsonify({'success': True})
