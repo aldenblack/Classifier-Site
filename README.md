@@ -5,7 +5,7 @@ This UI is meant to help with classifying split images from the Winter 2017 data
 
 ## UI Rules
 
-You will be assigned two folders to look through and assign labels to. The UI contains the following buttons: One, two, three, unsure, and custom count. With this program, you will be classifying the number of eggs in the tile provided.
+You will be assigned two folders to look through and assign labels to. The UI contains the following buttons: One, two, three, unsure, custom count, and undo. With this program, you will be classifying the number of eggs in the tile provided.
 
 
 
@@ -30,6 +30,8 @@ There is no partial egg button! If you see more than 70% of an egg in the image 
 
 * Python >3.9.6
 * Flask
+* numpy
+* cv2
 
 ### Installing & Executing the Program
 
@@ -103,12 +105,16 @@ If neither of these worked, Google your error. If you are still having issues, c
 $ python3 -m venv .venv
 $ . .venv/bin/activate
 $ pip install Flask
+$ pip install numpy
+$ pip install opencv-python
 ```
 ##### Windows
 ```
 > py -3 -m venv .venv
 > .venv\Scripts\activate
 > pip install Flask
+> pip install numpy
+> pip install opencv-python
 ```
 
 #### 5. Execution
@@ -141,6 +147,8 @@ If you need help, email or text me, I can help with debugging your issues. Pleas
 Shreya Nakum
 
 [snakum@uci.edu](snakum@uci.edu)
+
+Alden Black
 
 ## Version History
 * 0.3
