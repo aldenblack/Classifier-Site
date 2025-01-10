@@ -10,6 +10,9 @@ logging.basicConfig(level=logging.DEBUG)
 from preprocessing_files.pruning import classify_white_spaces
 from custom_arg import ArgumentError
 
+import image_shredder
+import cv2
+
 app = Flask(__name__)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -25,7 +28,18 @@ if (n > 2):
 if not os.path.isdir(IMAGE_FOLDER):
     raise ArgumentError('Image bank path must lead to a directory.')
 
-classify_white_spaces(IMAGE_FOLDER) # this takes about 1-2 minutes to run, dw about it, it's removing all white space squares
+# classify_white_spaces(IMAGE_FOLDER) # this takes about 1-2 minutes to run, dw about it, it's removing all white space squares
+
+# check if the first image is 75 x 75, if it is not, then run the shredder on the folder
+first_image_path = os.path.join(IMAGE_FOLDER, os.listdir(IMAGE_FOLDER)[0])
+print(f'first image path: {first_image_path}')
+first_image = cv2.imread(first_image_path)
+
+height, width = first_image.shape[:2]
+if (height != 75 or width != 75):
+    image_shredder.main(IMAGE_FOLDER)
+    IMAGE_FOLDER+="-sliced"
+    classify_white_spaces(IMAGE_FOLDER)
 
 categorization_history = deque(maxlen=10) # use a single history stack for the local instance which holds the most recent 10 images changed
 
@@ -38,7 +52,7 @@ def static_files(filename):
     return send_from_directory(os.path.join(os.path.dirname(__file__), 'static'), filename)
 
 def get_next_image():
-    images = [f for f in os.listdir(IMAGE_FOLDER) if (f.endswith('.jpg') and not (f.startswith('eggs') or f.startswith('unsure')))]
+    images = [f for f in os.listdir(IMAGE_FOLDER) if ((f.endswith('.jpg') or f.endswith('.png')) and not (f.startswith('eggs') or f.startswith('unsure')))]
     return random.choice(images) if images else None
 
 @app.route('/undo', methods=['POST'])

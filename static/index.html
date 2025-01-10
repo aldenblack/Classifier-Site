@@ -159,9 +159,17 @@
         }
 
         document.addEventListener('keydown', function(event) {
-            if (event.key >= '0' && event.key <= '3') {
+            if (event.key >= '0' && event.key <= '9') {
                 categorizeImage(`eggs${event.key}count`);
             }
+	    
+	    if (event.key == 'z' || (event.ctrlKey && event.key == 'z')) {
+		undoLastAction();
+	    }
+	    
+	    if (event.key == 'u') {
+		categorizeImage('eggsunsurecount');
+	    }
         });
 
         // load the first image when the page loads

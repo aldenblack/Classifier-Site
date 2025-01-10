@@ -25,11 +25,12 @@ def split_image(outpath, imgpath, imgid):
             cv.imwrite(r'{}/{} pt{}.jpg'.format(outpath,imgname,index),crop_img) # outputs jpg
             index += 1
 
-def main(argv):
-    path = "" 
-    for i in range(1, len(sys.argv)):
-        path += sys.argv[i] + " "
-    path = path[0:len(path)-1]
+def main(path): # changed argv into path
+    # path = ""
+    # path = argv
+    # for i in range(1, len(sys.argv)):
+        # path += sys.argv[i] + " "
+    # path = path[0:len(path)-1]
     for x in os.listdir(path): 
         imgpath = f'{path}/{x}'
         print(imgpath)
@@ -40,5 +41,5 @@ def main(argv):
             split_image(outpath, imgpath, x)
     print("Finished!")
 
-main(0) # to run, type: > python3 image_shredder.py [folder-path]
+# main(0) # to run, type: > python3 image_shredder.py [folder-path]
 
