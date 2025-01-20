@@ -37,9 +37,11 @@ first_image = cv2.imread(first_image_path)
 
 height, width = first_image.shape[:2]
 if (height != 75 or width != 75):
-    image_shredder.main(IMAGE_FOLDER)
+    if not os.path.isdir(IMAGE_FOLDER+"-sliced"):
+        image_shredder.main(IMAGE_FOLDER)
     IMAGE_FOLDER+="-sliced"
-    classify_white_spaces(IMAGE_FOLDER)
+classify_white_spaces(IMAGE_FOLDER)
+    
 
 categorization_history = deque(maxlen=10) # use a single history stack for the local instance which holds the most recent 10 images changed
 

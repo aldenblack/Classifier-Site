@@ -8,7 +8,7 @@ def split_image(outpath, imgpath, imgid):
     img = cv.imread(imgpath, 1)
     height, width, _ = img.shape
     index = 1
-    print(f"SPLITTING {imgid}")
+    #print(f"SPLITTING {imgid}")
     imgname = imgid[0:imgid.find(".")]
     # Since not all image resolutions are evenly divisible by 75, center w/ indent:
     y_indent = int(height%75/2)
@@ -26,6 +26,7 @@ def split_image(outpath, imgpath, imgid):
             index += 1
 
 def main(path): # changed argv into path
+    print("Splitting images...")
     # path = ""
     # path = argv
     # for i in range(1, len(sys.argv)):
@@ -33,7 +34,7 @@ def main(path): # changed argv into path
     # path = path[0:len(path)-1]
     for x in os.listdir(path): 
         imgpath = f'{path}/{x}'
-        print(imgpath)
+        #print(imgpath)
         if  x.endswith(".jpg") or x.endswith(".png"):
             outpath = r'{}-sliced'.format(path)
             if not os.path.exists(outpath):
